@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <QAD.QualityMultipliers>Quality multipliers</QAD.QualityMultipliers>
+  <QAD.Awful>Awful: {0}</QAD.Awful>
+  <QAD.Poor>Poor: {0}</QAD.Poor>
+  <QAD.Normal>Normal: {0}</QAD.Normal>
+  <QAD.Good>Good: {0}</QAD.Good>
+  <QAD.Excellent>Excellent: {0}</QAD.Excellent>
+  <QAD.Masterwork>Masterwork: {0}</QAD.Masterwork>
+  <QAD.Legendary>Legendary: {0}</QAD.Legendary>
+  <QAD.ModVersion>Installed mod-version: {0}</QAD.ModVersion>
+</LanguageData>

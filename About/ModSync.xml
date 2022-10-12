@@ -2,7 +2,7 @@
 <ModSyncNinjaData>
   <ID>d940e198-69c0-46e0-aa67-7f4415e61ed7</ID>
   <ModName>Quality And Durability (Continued)</ModName>
-  <Version>1.0.0.0</Version>
+  <Version>1.4.1</Version>
   <SaveBreaking>False</SaveBreaking>
   <Host name="Github">
     <Owner>emipa606</Owner>
@@ -12,7 +12,3 @@
     <Branch>master</Branch>
   </Host>
 </ModSyncNinjaData>
-
-
-
-
