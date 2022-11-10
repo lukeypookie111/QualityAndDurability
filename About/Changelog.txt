@@ -1,5 +1,8 @@
 # Changelog for QualityAndDurability
 
+1.4.2 - Settings should now show the selected values with more decimals
+
+
 1.4.1 - Mod updated for 1.4 and passed autotests
 
 
