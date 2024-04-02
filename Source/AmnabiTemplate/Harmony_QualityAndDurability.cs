@@ -10,18 +10,18 @@ public static class Harmony_QualityAndDurability
     static Harmony_QualityAndDurability()
     {
         var harmony = new Harmony("Amnabi.QualityAndDurability");
-        harmony.PatchAll();
+        //harmony.PatchAll();
         harmony.Patch(
-            AccessTools.Method(typeof(CompQuality), "SetQuality"),
+            AccessTools.Method(typeof(CompQuality), nameof(CompQuality.SetQuality)),
             null,
             new HarmonyMethod(typeof(Harmony_QualityAndDurability), nameof(SetQualityPatch)));
         harmony.Patch(
-            AccessTools.DeclaredPropertyGetter(typeof(Thing), "MaxHitPoints"),
+            AccessTools.DeclaredPropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints)),
             null,
             new HarmonyMethod(typeof(Harmony_QualityAndDurability), nameof(MaxHitPointsPatch)));
     }
 
-    public static void SetQualityPatch(QualityCategory q, ArtGenerationContext source, CompQuality __instance)
+    public static void SetQualityPatch(CompQuality __instance)
     {
         __instance.parent.HitPoints = __instance.parent.MaxHitPoints;
     }
