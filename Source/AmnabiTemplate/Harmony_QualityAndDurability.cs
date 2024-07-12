@@ -1,4 +1,6 @@
-﻿using HarmonyLib;
+﻿using System.Collections.Generic;
+using System.Xml;
+using HarmonyLib;
 using RimWorld;
 using Verse;
 
@@ -7,8 +9,12 @@ namespace Amnabi;
 [StaticConstructorOnStartup]
 public static class Harmony_QualityAndDurability
 {
+
+  
     static Harmony_QualityAndDurability()
     {
+       
+       
         var harmony = new Harmony("Amnabi.QualityAndDurability");
         //harmony.PatchAll();
         harmony.Patch(
@@ -19,7 +25,34 @@ public static class Harmony_QualityAndDurability
             AccessTools.DeclaredPropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints)),
             null,
             new HarmonyMethod(typeof(Harmony_QualityAndDurability), nameof(MaxHitPointsPatch)));
+        
+        // ThingDef.equippedStatOffsets
+        
+        
+        // if (AccessTools.PropertyGetter(typeof(ThingDef), nameof(ThingDef.equippedStatOffsets)) == null)
+        // {
+        //     Log.Error("Issue with getting proportie");
+        //     Log.Error(typeof(ThingDef).ToString());
+        //     Log.Error(nameof(ThingDef.equippedStatOffsets));
+        //    
+        //     Log.Warning(AccessTools.DeclaredPropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints))
+        //         .ToString());
+        //     Log.Warning("Proporty: " + AccessTools.DeclaredPropertyGetter(typeof(Thing), nameof(Thing.def))
+        //         ); 
+        //     Log.Warning("Method: " + AccessTools.Method(typeof(Thing), nameof(Thing.def))
+        //         ); 
+        //     Log.Warning("Field : " + AccessTools.Field(typeof(Thing), nameof(Thing.def))); 
+        //     Log.Warning("Prop Gett : " + AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.def))); 
+        //     Log.Warning("Prop Different Approch : " + AccessTools.("List<StatModifier>:equippedStatOffsets")); 
+        // }
+       
+        // harmony.Patch(
+        //     AccessTools.DeclaredPropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints)),
+        //     null,
+        //     new HarmonyMethod(typeof(Harmony_QualityAndDurability), nameof(MeleeQualityPatch)));
     }
+
+    
 
     public static void SetQualityPatch(CompQuality __instance)
     {
@@ -38,6 +71,29 @@ public static class Harmony_QualityAndDurability
         {
             __result = (int)(__result * adjustSwitch(qualityComp.Quality));
         }
+    }
+
+    public static void MeleeQualityPatch(Thing __instance, ref int __result)
+    {
+        Log.Message("Patching " + __instance.def.defName);
+        if (!__instance.def.IsWeapon && __instance.def.equippedStatOffsets.Count < 1 )
+        {
+            Log.Message("Patching  " + __instance.def.defName + " Failed");
+            return;
+        }
+        
+        var qualityComp = __instance.TryGetComp<CompQuality>();
+        var toolOfsets = __instance.def;
+        if (qualityComp != null)
+        {
+            foreach (var ToolOfset in toolOfsets.equippedStatOffsets)
+            {
+                ToolOfset.value = (int)(ToolOfset.value * adjustSwitch(qualityComp.Quality));
+            }
+
+        }
+        Log.Message("Patching  " + __instance.def.defName + " Succeded");
+
     }
 
     public static float adjustSwitch(QualityCategory q)
@@ -75,5 +131,10 @@ public static class Harmony_QualityAndDurability
         }
 
         return 1.0f;
+    }
+
+    public static void LoadDataFromXmlCustom(XmlNode xmlRoot)
+    {
+        
     }
 }
