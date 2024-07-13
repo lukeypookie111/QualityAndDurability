@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-    <Operation Class="PatchOperationFindMod">
-        <mods>
-            <li>Tools O' Plenty</li>
-        </mods>
+<!--    <Operation Class="PatchOperationFindMod">-->
+<!--        <mods>-->
+<!--            <li>Tools O' Plenty</li>-->
+<!--        </mods>-->
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName = "Primitive_Knife"]</xpath>
+        <value>
+            <Falase>FooFar</Falase>
+        </value>
+    </Operation>
         <Operation Class="PatchOperationAddModExtension">
-            <xpath>Defs/li[text()="Toolagri"]</xpath>
+            <xpath>Defs/ThingDef/weaponTags/li[text()="Toolagri"]</xpath>
             <value>
                 <li Class="Amnabi.StatExstention">
                     <itemStatFactors>
@@ -42,23 +48,23 @@
                 </li>
             </value>
         </Operation>
-
-        <Operation Class="PatchOperationAdd">
-            <xpath>Defs/li[text()="Toolagri"]</xpath>
-            <value>
-                <parts>
-                    <li Class="QualityStatPart">
-                        <factorAwful>0.86</factorAwful>
-                        <factorPoor>0.92</factorPoor>
-                        <factorNormal>1</factorNormal>
-                        <factorGood>1.08</factorGood>
-                        <factorExcellent>1.14</factorExcellent>
-                        <factorMasterwork>1.25</factorMasterwork>
-                        <factorLegendary>1.6</factorLegendary>
-                    </li>
-                </parts>
-            </value>
-        </Operation>
+ 
+<!--        <Operation Class="PatchOperationAdd">-->
+<!--            <xpath>Defs/ThingDef/weaponTags/li[text()="Toolagri"]</xpath>-->
+<!--            <value>-->
+<!--                <parts>-->
+<!--                    <li Class="QualityStatPart">-->
+<!--                        <factorAwful>0.86</factorAwful>-->
+<!--                        <factorPoor>0.92</factorPoor>-->
+<!--                        <factorNormal>1</factorNormal>-->
+<!--                        <factorGood>1.08</factorGood>-->
+<!--                        <factorExcellent>1.14</factorExcellent>-->
+<!--                        <factorMasterwork>1.25</factorMasterwork>-->
+<!--                        <factorLegendary>1.6</factorLegendary>-->
+<!--                    </li>-->
+<!--                </parts>-->
+<!--            </value>-->
+<!--        </Operation>-->
        
-    </Operation>
+<!--    </Operation>-->
 </Patch>

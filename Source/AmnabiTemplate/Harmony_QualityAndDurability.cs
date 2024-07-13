@@ -35,36 +35,46 @@ public static class Harmony_QualityAndDurability
             {
                 var thingDef = thingDefs[i];
                
-			
+			    
                 if (thingDef.GetModExtension<StatExstention>() is { } extension)
                     extension.Initialize(thingDef);
+                else
+                {
+                    
+                    Log.Message("Cant find exstetion for" + thingDef.defName);
+                }
                
             }
+            Log.Clear();
+            Log.Message("what is this " +DefDatabase<ThingDef>.GetNamed("Primitive_Knife").defName);
+            Log.Message(DefDatabase<ThingDef>.GetNamed("Primitive_Knife").GetModExtension< StatExstention>() != null);
+            DefDatabase<ThingDef>.GetNamed("Primitive_Knife").weaponTags.ForEach(X => Log.Message(X));
+            Log.Message(DefDatabase<ThingDef>.GetNamed("Primitive_Knife"));
 
-        // ThingDef.equippedStatOffsets
-        
-        
-        // if (AccessTools.PropertyGetter(typeof(ThingDef), nameof(ThingDef.equippedStatOffsets)) == null)
-        // {
-        //     Log.Error("Issue with getting proportie");
-        //     Log.Error(typeof(ThingDef).ToString());
-        //     Log.Error(nameof(ThingDef.equippedStatOffsets));
-        //    
-        //     Log.Warning(AccessTools.DeclaredPropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints))
-        //         .ToString());
-        //     Log.Warning("Proporty: " + AccessTools.DeclaredPropertyGetter(typeof(Thing), nameof(Thing.def))
-        //         ); 
-        //     Log.Warning("Method: " + AccessTools.Method(typeof(Thing), nameof(Thing.def))
-        //         ); 
-        //     Log.Warning("Field : " + AccessTools.Field(typeof(Thing), nameof(Thing.def))); 
-        //     Log.Warning("Prop Gett : " + AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.def))); 
-        //     Log.Warning("Prop Different Approch : " + AccessTools.("List<StatModifier>:equippedStatOffsets")); 
-        // }
-       
-        // harmony.Patch(
-        //     AccessTools.DeclaredPropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints)),
-        //     null,
-        //     new HarmonyMethod(typeof(Harmony_QualityAndDurability), nameof(MeleeQualityPatch)));
+            // ThingDef.equippedStatOffsets
+
+
+            // if (AccessTools.PropertyGetter(typeof(ThingDef), nameof(ThingDef.equippedStatOffsets)) == null)
+            // {
+            //     Log.Error("Issue with getting proportie");
+            //     Log.Error(typeof(ThingDef).ToString());
+            //     Log.Error(nameof(ThingDef.equippedStatOffsets));
+            //    
+            //     Log.Warning(AccessTools.DeclaredPropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints))
+            //         .ToString());
+            //     Log.Warning("Proporty: " + AccessTools.DeclaredPropertyGetter(typeof(Thing), nameof(Thing.def))
+            //         ); 
+            //     Log.Warning("Method: " + AccessTools.Method(typeof(Thing), nameof(Thing.def))
+            //         ); 
+            //     Log.Warning("Field : " + AccessTools.Field(typeof(Thing), nameof(Thing.def))); 
+            //     Log.Warning("Prop Gett : " + AccessTools.PropertyGetter(typeof(Thing), nameof(Thing.def))); 
+            //     Log.Warning("Prop Different Approch : " + AccessTools.("List<StatModifier>:equippedStatOffsets")); 
+            // }
+
+            // harmony.Patch(
+            //     AccessTools.DeclaredPropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints)),
+            //     null,
+            //     new HarmonyMethod(typeof(Harmony_QualityAndDurability), nameof(MeleeQualityPatch)));
     }
     
     
