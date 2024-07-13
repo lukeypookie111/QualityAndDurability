@@ -5,8 +5,12 @@ using Verse;
 namespace Amnabi;
 
 [StaticConstructorOnStartup]
+
+
 internal class QualityAndDurabilityMod : Mod
 {
+    
+    
     /// <summary>
     ///     The instance of the settings to be read by the mod
     /// </summary>

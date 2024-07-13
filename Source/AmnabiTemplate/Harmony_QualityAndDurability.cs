@@ -6,6 +6,8 @@ using Verse;
 
 namespace Amnabi;
 
+
+
 [StaticConstructorOnStartup]
 public static class Harmony_QualityAndDurability
 {
@@ -25,7 +27,20 @@ public static class Harmony_QualityAndDurability
             AccessTools.DeclaredPropertyGetter(typeof(Thing), nameof(Thing.MaxHitPoints)),
             null,
             new HarmonyMethod(typeof(Harmony_QualityAndDurability), nameof(MaxHitPointsPatch)));
-        
+       
+        Log.Warning("Starting ThingDef Initilisation");
+            DefDatabase<ThingDef>.AddAllInMods();
+            var thingDefs = DefDatabase<ThingDef>.AllDefsListForReading;
+            for (var i = thingDefs.Count; i-- > 0;)
+            {
+                var thingDef = thingDefs[i];
+               
+			
+                if (thingDef.GetModExtension<StatExstention>() is { } extension)
+                    extension.Initialize(thingDef);
+               
+            }
+
         // ThingDef.equippedStatOffsets
         
         
@@ -51,7 +66,7 @@ public static class Harmony_QualityAndDurability
         //     null,
         //     new HarmonyMethod(typeof(Harmony_QualityAndDurability), nameof(MeleeQualityPatch)));
     }
-
+    
     
 
     public static void SetQualityPatch(CompQuality __instance)
