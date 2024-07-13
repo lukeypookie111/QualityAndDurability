@@ -38,12 +38,7 @@ public static class Harmony_QualityAndDurability
 			    
                 if (thingDef.GetModExtension<StatExstention>() is { } extension)
                     extension.Initialize(thingDef);
-                else
-                {
-                    
-                    Log.Message("Cant find exstetion for" + thingDef.defName);
-                }
-               
+              
             }
             Log.Clear();
             Log.Message("what is this " +DefDatabase<ThingDef>.GetNamed("Primitive_Knife").defName);

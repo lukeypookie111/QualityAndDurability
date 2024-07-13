@@ -6,6 +6,7 @@ using Verse;
 
 namespace Amnabi;
 
+[UsedImplicitly(ImplicitUseTargetFlags.Members)]
 public class StatExstention: DefModExtension
 {
     [CanBeNull]public List<StatModifierQuality> itemStatFactorsByQuality, itemStatOffsetsByQuality;
