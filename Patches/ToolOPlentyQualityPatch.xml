@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Tools O' Plenty</li>
+        </mods>
+        <match Class="PatchOperationAddModExtension">
+            <xpath>Defs/ThingDef[weaponTags/li="Toolagri"]</xpath>
+            <value>
+                <li Class="Amnabi.StatExtension">
+                    <itemStatFactors>
+                        <DefName>1</DefName>
+                    </itemStatFactors>
+
+                    <itemStatOffsets>
+                        <DefName>0</DefName>
+                    </itemStatOffsets>
+
+                    <itemStatFactorsByQuality>
+                        <li>
+                            <awful>1</awful>
+                            <poor>2</poor>
+                            <normal>3</normal>
+                            <good>4</good>
+                            <excellent>5</excellent>
+                            <masterwork>6</masterwork>
+                            <legendary>7</legendary>
+                        </li>
+                    </itemStatFactorsByQuality>
+
+                    <itemStatOffsetsByQuality>
+                        <li>
+                        <awful>1</awful>
+                        <poor>2</poor>
+                        <normal>3</normal>
+                        <good>4</good>
+                        <excellent>5</excellent>
+                        <masterwork>6</masterwork>
+                        <legendary>7</legendary>
+                        </li>
+                    </itemStatOffsetsByQuality>
+                </li>
+                
+            </value>
+            <Operation Class="PatchOperationAdd">
+                <value>
+                <li Class="QualityStatPart">
+                </li>
+                </value>
+            </Operation>
+        </match>
+       
+    </Operation>
+    
+</Patch>
+
+
+        <!--        <Operation Class="PatchOperationAdd">-->
+        <!--            <xpath>Defs/ThingDef/weaponTags/li[text()="Toolagri"]</xpath>-->
+        <!--            <value>-->
+        <!--                <parts>-->
+        <!--                    <li Class="QualityStatPart">-->
+        <!--                        <factorAwful>0.86</factorAwful>-->
+        <!--                        <factorPoor>0.92</factorPoor>-->
+        <!--                        <factorNormal>1</factorNormal>-->
+        <!--                        <factorGood>1.08</factorGood>-->
+        <!--                        <factorExcellent>1.14</factorExcellent>-->
+        <!--                        <factorMasterwork>1.25</factorMasterwork>-->
+        <!--                        <factorLegendary>1.6</factorLegendary>-->
+        <!--                    </li>-->
+        <!--                </parts>-->
+        <!--            </value>-->
+        <!--        </Operation>-->

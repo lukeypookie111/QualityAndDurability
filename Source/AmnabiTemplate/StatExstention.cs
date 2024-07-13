@@ -7,11 +7,10 @@ using Verse;
 namespace Amnabi;
 
 [UsedImplicitly(ImplicitUseTargetFlags.Members)]
-public class StatExstention: DefModExtension
+public class StatExtension: DefModExtension
 {
     [CanBeNull]public List<StatModifierQuality> itemStatFactorsByQuality, itemStatOffsetsByQuality;
     [CanBeNull]public List<StatModifier> itemStatFactors, itemStatOffsets;
-    public QualityStatPart StatPart = new ();
     
     public void Initialize(ThingDef parent)
     {

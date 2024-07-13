@@ -36,15 +36,15 @@ public static class Harmony_QualityAndDurability
                 var thingDef = thingDefs[i];
                
 			    
-                if (thingDef.GetModExtension<StatExstention>() is { } extension)
+                if (thingDef.GetModExtension<StatExtension>() is { } extension)
                     extension.Initialize(thingDef);
+                
               
             }
-            Log.Clear();
             Log.Message("what is this " +DefDatabase<ThingDef>.GetNamed("Primitive_Knife").defName);
-            Log.Message(DefDatabase<ThingDef>.GetNamed("Primitive_Knife").GetModExtension< StatExstention>() != null);
+            Log.Message(DefDatabase<ThingDef>.GetNamed("Primitive_Knife").GetModExtension<StatExtension>() != null);
             DefDatabase<ThingDef>.GetNamed("Primitive_Knife").weaponTags.ForEach(X => Log.Message(X));
-            Log.Message(DefDatabase<ThingDef>.GetNamed("Primitive_Knife"));
+           
 
             // ThingDef.equippedStatOffsets
 

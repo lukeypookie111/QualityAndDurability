@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+<!--<Operation Class="PatchOperationFindMod">-->
+<!--    <mods>-->
+<!--        <li>Tools O' Plenty</li>-->
+<!--    </mods>-->
+<!--    <nomatch Class = "PatchOperationReplace">-->
+<!--        <xpath>Defs/ThingDef[defName = "Primitive_Knife"]/label</xpath>-->
+<!--        <value>-->
+<!--            <label>"Failed to find Tools 0' Plenty"</label>-->
+<!--        </value>-->
+<!--    </nomatch>-->
+<!--</Operation>-->
+</Patch>
+    

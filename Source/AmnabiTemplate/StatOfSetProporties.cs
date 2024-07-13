@@ -40,7 +40,7 @@ public class QualityStatPart : StatPart
     private float GetStatOffset(Thing tool)// Stat Offset , this would be the base value
     {
         var Quality = tool.TryGetComp<CompQuality>();
-        var StatExstenstion = tool.def.GetModExtension<StatExstention>();
+        var StatExstenstion = tool.def.GetModExtension<StatExtension>();
         
         // return StatExstenstion is null? 0 : 
        
@@ -68,7 +68,7 @@ public class QualityStatPart : StatPart
     private float GetStatFactor(Thing Tool) // Stat multiplier , multiply the base value
     {
         var Quality = Tool.TryGetComp<CompQuality>();
-        var StatExstenstion = Tool.def.GetModExtension<StatExstention>();
+        var StatExstenstion = Tool.def.GetModExtension<StatExtension>();
         
         // return StatExstenstion is null? 0 : 
 
